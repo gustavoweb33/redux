@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 //STORE -> GLOBALIZED STATE
 
@@ -14,23 +14,29 @@ const increment = () => {
     }
 }
 
-const decrement = () => {
-    return {
-        type: 'decrement'
-    }
-}
+// const decrement = () => {
+//     return {
+//         type: 'decrement'
+//     }
+// }
 
 //REDUCER
-const container = ( state = 0, action ) => {
+const counter = ( state, action ) => {
+    console.log(action)
     switch ( action.type ) {
         case 'increment':
             return state + 1;
         case 'decrement':
             return state - 1;
+        default:
+            return state
     }
 }
 
 //DISPATCH
+const store = createStore( counter );
+store.dispatch( increment() );
+
 
 ReactDOM.render( <App />, document.getElementById( 'root' ) );
 
