@@ -25,7 +25,7 @@ const rootReducer = ( state = initialState, action ) => {
     return state;
 }
 
-//Store
+//Store takes in a reducer
 const store = createStore( rootReducer );
 
 //Subscriptions -> so we don't have to manually set state
